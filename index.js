@@ -6,6 +6,7 @@ const keysOfCalc =
     "4","5","6","-",
     "1","2","3","*",
     ".","0","=","/"];
+
 calculateKeys.forEach((el, index) => {
     el.textContent = keysOfCalc[index]
 })
