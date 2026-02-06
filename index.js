@@ -1,18 +1,47 @@
 
 const calculateKeys = document.querySelectorAll(".list_btn")
 const keysOfCalc =
-    ["7","8","9","+",
+    ["C","%","**","<",
+    "7","8","9","+",
     "4","5","6","-",
     "1","2","3","*",
-    "C","0","=","/"];
+    ".","0","=","/"];
 calculateKeys.forEach((el, index) => {
     el.textContent = keysOfCalc[index]
 })
 
-const inputDash = document.querySelectorAll(".list_input")
-calculateKeys.addEventListener("click", (e) => {
-    const value = e.target.textContent
-    if (value !== "=" && value !== "C") {
-        inputDash.value += value
-    }
+const inputDash = document.querySelector(".list_input")
+
+calculateKeys.forEach((el, index) => {
+    el.textContent = keysOfCalc[index]
+
+    el.addEventListener("click",  (e) => {
+        const value = e.target.textContent
+
+        if(value === "<"){
+            inputDash.value = inputDash.value.slice(0, -1)
+            return
+        }
+
+        if(value === "C"){
+            inputDash.value = " "
+            return
+        }
+
+        if (value === "=") {
+            try {
+                inputDash.value = eval(inputDash.value)
+            } catch {
+                inputDash.value = "Error"
+            }
+        }
+        if(value === "%"){
+            return inputDash.value = inputDash.value / 100
+        }
+        if(value !== "=" && value !== "C"){
+            inputDash.value += value
+        }
+
+    })
 })
+

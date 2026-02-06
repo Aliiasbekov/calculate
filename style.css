@@ -26,15 +26,15 @@ button{
     background-color: black;
     border-radius: 10px;
     display: grid;
-    grid-template-rows: 140px repeat(4, 1fr);
+    grid-template-rows: 100px repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     padding: 15px;
 }
 .list_input{
     grid-column: 1 / -1;
-    height: 120px;
-    font-size: 24px;
+    height: 100px;
+    font-size: 56px;
     text-align: right;
     padding: 10px;
     box-sizing: border-box
